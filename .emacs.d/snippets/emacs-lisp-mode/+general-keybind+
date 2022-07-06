@@ -1,0 +1,6 @@
+# -*- mode: snippet -*-
+# name: keybind stuff
+# key: ""
+# --
+
+"${1:keys}" '(${2:function} :which-key "${3:comments}")$0

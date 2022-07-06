@@ -17,6 +17,10 @@ export SPROMPT="Correct %{$fg[red]%R$reset_color%} to %{$fg[green]%r$reset_color
 bindkey -v
 
 # Load aliases
+alias ls="ls --color=auto"
+alias grep="grep --color=auto"
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
 . ~/.config/aliasrc
 
 # Set prompt

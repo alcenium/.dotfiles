@@ -8,6 +8,9 @@ case $- in
       *) return;;
 esac
 
+# Set vi mode for bash
+set -o vi
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 HISTCONTROL=ignoreboth
@@ -16,7 +19,7 @@ HISTCONTROL=ignoreboth
 shopt -s histappend
 
 # Editor
-EDITOR="nvim"
+EDITOR=nvim
 
 # for setting history length see HISTSIZE and HISTFILESIZE in bash(1)
 HISTSIZE=1000
@@ -120,3 +123,4 @@ if ! shopt -oq posix; then
 fi
 
 PATH="$PATH:/home/codeer/.local/bin"
+. "$HOME/.cargo/env"

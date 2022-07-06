@@ -49,7 +49,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "zenburn/theme.lua")
 beautiful.font = "FiraMono Nerd Font 10"
 
 -- This is used later as the default terminal and editor to run.
@@ -386,7 +386,7 @@ clientkeys = gears.table.join(
               {description = "close", group = "client"}),
     awful.key({ modkey, "Control" }, "space",  awful.client.floating.toggle                     ,
               {description = "toggle floating", group = "client"}),
-    awful.key({ modkey, "Control" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
+    awful.key({ modkey, "Shift" }, "Return", function (c) c:swap(awful.client.getmaster()) end,
               {description = "move to master", group = "client"}),
     awful.key({ modkey,           }, "o",      function (c) c:move_to_screen()               end,
               {description = "move to screen", group = "client"}),
@@ -612,4 +612,3 @@ client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_n
 -- Startup scripts
 awful.spawn.with_shell("setxkbmap -option caps:swapescape")
 awful.spawn.with_shell("compton")
-awful.spawn.with_shell("nitrogen --restore")

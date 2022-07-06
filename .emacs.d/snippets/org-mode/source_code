@@ -1,0 +1,8 @@
+# -*- mode: snippet -*-
+# name: source code
+# key: #+src
+# --
+
+#+begin_src ${1:programming language}
+$0
+#+end_src

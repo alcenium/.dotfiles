@@ -1,0 +1,4 @@
+set page-padding 0
+
+map <C-l> feedkeys ":blist <Tab>"
+map <C-m> feedkeys ":bmark"

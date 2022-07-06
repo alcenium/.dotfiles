@@ -8,6 +8,8 @@ alias \
 	yt_audio='youtube-dl -x --audio-format ' \
 	fzf='ls|fzf -i -m' \
 	bat='batcat' \
+	nvide='neovide' \
+	cfawesome='neovide ~/.config/awesome/rc.lua && awesome -k ~/.config/awesome/rc.lua && cp ~/.config/awesome/rc.lua ~/.dotfiles/.config/awesome/rc.lua' \
 
 # PS1
 LIGHT_BLUE="\[$(tput setaf 14)\]"
