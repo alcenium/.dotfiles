@@ -1,14 +1,16 @@
 # Aliases
 alias \
 	l='ls -CF' \
+	cdb='cd ..' \
+	bat='batcat' \
+	ed='ed -p : ' \
+	nvide='neovide' \
+	emacs='emacs &' \
+	fzf='ls|fzf -i -m' \
 	ls='ls --color=auto' \
 	la='ls -A --color=auto' \
 	ll='ls -alhF --color=auto' \
-	clr='printf "\033c"' \
 	yt_audio='youtube-dl -x --audio-format ' \
-	fzf='ls|fzf -i -m' \
-	bat='batcat' \
-	nvide='neovide' \
 	cfawesome='neovide ~/.config/awesome/rc.lua && awesome -k ~/.config/awesome/rc.lua && cp ~/.config/awesome/rc.lua ~/.dotfiles/.config/awesome/rc.lua' \
 
 # PS1

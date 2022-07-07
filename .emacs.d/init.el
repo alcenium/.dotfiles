@@ -16,7 +16,7 @@
  '(mode-line-format
    '("%e" " " mode-line-modified mode-line-remote mode-line-frame-identification mode-line-buffer-identification "   " mode-line-position evil-mode-line-tag
      (vc-mode vc-mode)
-     "  " mode-line-modes mode-line-misc-info mode-line-end-spaces))
+     "	" mode-line-modes mode-line-misc-info mode-line-end-spaces))
  '(package-selected-packages
    '(rust-mode use-package which-key general yasnippet company evil)))
 (custom-set-faces
@@ -24,10 +24,9 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- )
+ '(org-ellipsis ((t (:foreground "LightGoldenrod" :underline nil)))))
 
 ;========Configs=========
-(require 'package)
 ;; Disable unnecessary bars
 (scroll-bar-mode -1)
 (tool-bar-mode -1)
@@ -45,23 +44,34 @@
 
 ;; Org mode
 (setq org-ellipsis " ▼")
-(set-face-underline 'org-ellipsis nil)
+
+;; Destroy the stupid indentation
+(setq-default indent-tabs-mode nil)
+(defvaralias 'c-basic-offset 'tab-width)
+(defvaralias 'cperl-indent-level 'tab-width)
+
+;; Change tab size
+(setq-default tab-width 4)
+
+;; No electric indent
+(electric-indent-mode -1)
 ;=========================
 
 ;==========Packages========
+(require 'package)
 (add-to-list 'package-archives '("melpa" . "https://melpa.org/packages/"))
 (setq package-list '(
-		     ;; Utilities
-		     company ; autocomplete
-		     yasnippet ; snippet
-		     use-package ; package manager
-		     general ; better keybind
-		     ;; Visual
-		     which-key
-		     ;; Modes
-		     evil
-		     rust-mode
-		     ))
+			 ;; Utilities
+			 company ; autocomplete
+			 yasnippet ; snippet
+			 use-package ; package manager
+			 general ; better keybind
+			 ;; Visual
+			 which-key
+			 ;; Modes
+			 evil
+			 rust-mode
+			 ))
 (package-initialize)
 
 (setq package-enable-at-startup nil)
@@ -87,6 +97,10 @@
    "xe" '(eval-last-sexp :which-key "eval elips code")
    "xb" '(switch-to-buffer :which-key "switch buffer")
    "xc" '(save-buffers-kill-terminal :which-key "save and quit")
+   "x0" '(delete-window :which-key "delete this window")
+   "x1" '(delete-other-windows :which-key "only window")
+   "x2" '(split-window-vertically :which-key "split down")
+   "x3" '(split-window-horizontally :which-key "split right")
    
    "h" '(nil :which-key "Help")
    "hk" '(describe-key :which-key "key")
@@ -99,8 +113,8 @@
    
    "w" '(nil :which-key "Window")
    "wo" '(other-window :which-key "switch window")
-   "w1" '(delete-other-windows :which-key "evil only")
-   "x0" '(delete-window :which-key "delete this window")
+   "w1" '(delete-other-windows :which-key "only window")
+   "w0" '(delete-window :which-key "delete this window")
    "w2" '(split-window-vertically :which-key "split down")
    "w3" '(split-window-horizontally :which-key "split right")
    "wk" '(evil-window-up :which-key "focus up")
@@ -111,6 +125,10 @@
    "wH" '(evil-window-move-far-left :which-key "move left")
    "wL" '(evil-window-move-far-right :which-key "move right")
    "wJ" '(evil-window-move-very-bottom :which-key "move down")
+   "w5" '(nil :which-key "Frame")
+   "w50" '(delete-frame :which-key "delete this frame")
+   "w51" '(delete-other-frames :which-key "only frame")
+   "w52" '(make-frame-command :which-key "make new frame")
    
    "b" '(nil :which-key "Buffer")
    "bl" '(next-buffer :which-key "next")
@@ -118,8 +136,12 @@
    "bB" '(list-buffers :which-key "list")
    "bb" '(switch-to-buffer :which-key "switch")
    "bh" '(previous-buffer :which-key "previous")
-   ))
 
+   "a" '(nil :which-key "Apps")
+   "at" '(term :which-key "terminal")
+   "ai" '(ielm :which-key "ielm")
+   ))
+	
 ;; Enable vim mode
 (use-package evil
   :config
@@ -144,8 +166,6 @@
 (use-package which-key
   :init
   (require 'which-key)
-  (setq which-key-popup-type 'side-window)
-  (setq which-key-side-window-location 'left)
   (setq which-key-idle-delay 0.7)
   :config
   (which-key-mode))

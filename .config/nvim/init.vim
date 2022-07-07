@@ -19,6 +19,7 @@ set mouse=a
 set path+=**
 set cmdheight=2
 set scrolloff=8
+set tabstop=4
 set shiftwidth=4
 set laststatus=2
 set history=1000

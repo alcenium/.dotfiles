@@ -1,0 +1,9 @@
+# -*- mode: snippet -*-
+# name: titler 
+# key: <t
+# --
+
+#+TITLE: ${1:title}
+#+AUTHOR: Alcenium
+
+$0

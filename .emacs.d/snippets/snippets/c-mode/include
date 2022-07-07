@@ -1,0 +1,7 @@
+# -*- mode: snippet -*-
+# name: include c
+# key: #inc
+# --
+
+#include <${1:library}>
+$0
